@@ -1,0 +1,15 @@
+.item {
+    display: flex;
+    flex-direction: row;
+    margin: .5em;
+}
+
+.item-name {
+    width: 20em;
+    text-align: left;
+}
+
+.item-quantity {
+    width: 5em;
+    text-align: right;
+}
