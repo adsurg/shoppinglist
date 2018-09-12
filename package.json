@@ -1,0 +1,11 @@
+{
+  "name": "shoppinglistaws",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Adam Surgenor <adam@surgenor.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless": "^1.31.0",
+    "serverless-finch": "^2.3.2"
+  }
+}
