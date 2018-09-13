@@ -5,9 +5,14 @@ provider:
   runtime: nodejs6.10
 
 functions:
-  hello:
-    handler: handler.hello
- 
+  getList:
+    handler: src/getList.getList
+    events:
+      - http:
+          path: list
+          method: get
+          cors: true # <-- CORS!
+
 custom:
   client:
     bucketName: my-shopping-list-demo
