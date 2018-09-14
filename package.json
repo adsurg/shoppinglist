@@ -7,5 +7,8 @@
   "devDependencies": {
     "serverless": "^1.31.0",
     "serverless-finch": "^2.3.2"
+  },
+  "scripts": {
+    "deploy": "cd website && yarn build && cd ../shoppingListService && serverless deploy --region eu-west-1 && serverless client deploy --region eu-west-1"
   }
 }
