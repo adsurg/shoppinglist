@@ -9,10 +9,12 @@ const items = [];
 
  /**
  * retrieves shopping list entries
- * @return {Item[]} an array of items to buy
+ * @return {Promise<Item[]>} an array of items to buy
  */
 function getItems() {
-    return items;
+    return window.fetch("https://t67uj0rkrl.execute-api.eu-west-1.amazonaws.com/dev/list")
+        .then(response => response 
+            && response.json())
 }
 
 /**
