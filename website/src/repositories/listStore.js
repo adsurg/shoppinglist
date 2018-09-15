@@ -23,7 +23,12 @@ function getItems() {
  * @param {number} quantity - The number of products to buy
  */
 function addItem(name, quantity){
-    items.push({name, quantity});
+    return window.fetch("https://t67uj0rkrl.execute-api.eu-west-1.amazonaws.com/dev/list", {
+        method: 'PUT',
+        body: JSON.stringify({name, quantity}),
+        headers:{
+          'Content-Type': 'application/json'
+        }})
 }
 
 export {

@@ -11,7 +11,14 @@ functions:
       - http:
           path: list
           method: get
-          cors: true # <-- CORS!
+          cors: true
+  putItem:
+    handler: src/putItem.putItem
+    events:
+      - http:
+          path: list
+          method: put
+          cors: true
 
 custom:
   client:
