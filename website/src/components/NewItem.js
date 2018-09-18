@@ -10,10 +10,12 @@ class NewItem extends Component {
           quantity: 0,
         }
       }
-    addItem(name, quantity){
+    addItem(){
         addItem(this.state.name, this.state.quantity)
-        this.props.onChange && this.props.onChange();
-        this.setState({name: "", quantity: 0});
+        .then(() => {
+            this.props.onChange && this.props.onChange();
+            this.setState({name: "", quantity: 0});
+        });
     }
     updateName(evt){
         this.setState(Object.assign({}, this.state, {name: evt.target.value}));
