@@ -2,5 +2,8 @@
   "devDependencies": {
     "serverless": "^1.32.0",
     "serverless-finch": "^2.3.2"
+  },
+  "scripts": {
+    "deploy": "cd website && yarn build && cd ../shoppingListService && serverless client deploy --region eu-west-1"
   }
 }
