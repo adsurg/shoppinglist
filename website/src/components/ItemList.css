@@ -1,4 +1,6 @@
 .itemList {
     display: flex;
     flex-direction: column;
+    background: #fff;
+    padding: 2px;
 }

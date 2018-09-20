@@ -2,19 +2,21 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin: 1em .5em;
+    padding: 0 .5em .5em;
 }
 
 .newItem label{
+    color: #fff;
     width: 10em;
     text-align: left;
+    margin-bottom: .5em;
 }
 .newItem-name, .newItem-quantity{
     display: flex;
     flex-direction: column;
 }
 .newItem-name input{
-    width: 30em;
+    width: 37em;
 }
 .newItem-quantity{
     width: 4em;
@@ -25,6 +27,7 @@
 }
 
 .newItem-actions{
+    margin-top: .5em;
     width: 100%;
     text-align: right;
 }
