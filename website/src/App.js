@@ -8,10 +8,13 @@ import './App.css';
 class App extends Component {
   constructor(props){
     super(props)
-    this.state={items:getItems()};
+    this.state={};
+    this.updateItems();
   }
   updateItems(){
-    this.setState({items:getItems()});
+    getItems()
+      .then(
+      items => this.setState({items}));
   }
   render() {
     const _this = this;

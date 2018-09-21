@@ -12,7 +12,9 @@ const items = [];
  * @return {Item[]} an array of items to buy
  */
 function getItems() {
-    return items;
+    return window.fetch("https://4ylvg4xohf.execute-api.eu-west-1.amazonaws.com/dev/list")
+        .then(response => response 
+            && response.json());
 }
 
 /**
@@ -21,7 +23,12 @@ function getItems() {
  * @param {number} quantity - The number of products to buy
  */
 function addItem(name, quantity){
-    items.push({name, quantity});
+    return window.fetch("https://4ylvg4xohf.execute-api.eu-west-1.amazonaws.com/dev/list", {
+        method: 'PUT', // or 'PUT'
+        body: JSON.stringify({name, quantity}),
+        headers:{
+          'Content-Type': 'application/json'
+        }})
 }
 
 export {

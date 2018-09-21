@@ -3,11 +3,45 @@ service: shoppingListService # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs6.10
+  tracing: true
+  iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:PutItem
+          - dynamodb:Scan
+        Resource: "arn:aws:dynamodb:*"
+
+resources:
+  Resources:
+    TaxRateTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        TableName: "ShoppingListEntry"
+        AttributeDefinitions:
+        - AttributeName: "product"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "product"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 2
+          WriteCapacityUnits: 2  
 
 functions:
-  hello:
-    handler: handler.hello
-
+  getList:
+    handler: src/getList.getList
+    events:
+      - http:
+          path: list
+          method: get
+          cors: true
+  putItem:
+    handler: src/putItem.putItem
+    events:
+      - http:
+          path: list
+          method: put
+          cors: true
 custom:
   client:
     bucketName: my-shopping-list-demo
